@@ -1,4 +1,4 @@
-!#/usr/bin/bash
+#!/usr/bin/sh
 
 # So you want a nice setup
 
