@@ -13,8 +13,8 @@ set $mod Mod1
 
 # Start auto
 # exec terminator
-#exec_always feh --bg-scale ~/background.jpg
-exec python /home/james/reddit_wallpaper/reddit_wallpaper_getter.py --min-resolution 1920x1080
+exec_always feh --bg-scale ~/background.jpg
+#exec python /home/james/reddit_wallpaper/reddit_wallpaper_getter.py --min-resolution 1920x1080
 exec compton -CGb --config /home/james/.config/compton.conf
 #exec_always compton --config ~/.compton.conf
 #enable_alpha_channel yes
@@ -143,9 +143,9 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # move between workspaces
-bindsym Mod4+Shift+Right workspace next
-bindsym Mod4+Shift+Left workspace prev
-bindsym Mod4+Shift+Up workspace back_and_forth
+bindsym Mod4+Right workspace next
+bindsym Mod4+Left workspace prev
+bindsym Mod4+Up workspace back_and_forth
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -233,7 +233,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-set $lime      #9FBC00
+set $lime      #FFFFFF
 set $bg     #1f1f1f
 set $fg     #af865a
 set $hi     #efef8f
@@ -267,7 +267,7 @@ bar {
         position                bottom
         workspace_buttons       yes
 #        mode hide
-        height 15
+        height 18
 
 }
 

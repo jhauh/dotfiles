@@ -1,0 +1,8 @@
+htop
+ranger
+vim
+feh
+i3
+tmux
+chromium-browser
+
