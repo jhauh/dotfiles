@@ -1,5 +1,5 @@
 # dotfiles
-## Setup and config files for a nicer lookng linux install
+## Setup and config files for a nicer looking linux install
 I have a penchant for the tiling window manager [i3](https://i3wm.org/). It's great, and it's all competely configured using plain text files. 
 
 What I _don't_ enjoy is setting it up again every time I spin up a new virtualbox or chroot. So here we are.
@@ -20,8 +20,8 @@ This will install the list of packages in pkglist.txt, as well as the gaps fork 
 All being well you should only have to run this once ever.
 
 Some packages I'd like to have automated the install of but couldn't (because they require adding PPAs) are
-- compton
-- dmenu2
+- compton: a lightweight compositing manager (determines how stuff gets drawn on your screen)
+- dmenu2: an upgrade for dmenu, the tiny launcher bundled with i3 (think Windows+r)
 
 Have a google and see if you can grab them. If not, no worries, life will go on.
 
@@ -32,7 +32,7 @@ Now you've got the necessary packages to be a linux pro, all you need are the ca
 If you fancy updating to see what I'm currently rocking, just `git pull`. To be sure you're not missing out on any extra goodies, rerun symlink_dotfiles.sh
 
 ## i3 on startup
-Everything is in place, now all you have to do is switch your current Desktop Environment off and tell i3 to start on boot by default. This varies depending on your current DE; here's what I do for Xubuntu (with Xfce):
+Everything is in place, now all you have to do is switch your current Desktop Environment off and tell i3 to start on login by default. This varies depending on your current DE; here's what I do for Xubuntu (with Xfce):
 [i3 tiling window manager with XFCE](https://forum.manjaro.org/index.php?topic=6831.0)
 
 
