@@ -37,4 +37,5 @@ Everything is in place, now all you have to do is switch your current Desktop En
 
 
 
-Good luck!
+Good luck! Hopefully by the end you'll have something that looks a little like this:
+![Seriously, how good does this look?](https://github.com/fluffactually/dotfiles/raw/master/Screenshot_2015-07-01.png)
