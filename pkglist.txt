@@ -5,4 +5,5 @@ feh
 i3
 tmux
 chromium-browser
-
+ttf-font-awesome
+noto-fonts

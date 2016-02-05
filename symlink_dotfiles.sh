@@ -21,7 +21,8 @@ ln -s ~/dotfiles/configs/i3status.conf ~/.i3/i3status.conf
 ln -s ~/dotfiles/configs/i3exit.sh ~/.i3/i3exit.sh
 ln -s ~/dotfiles/configs/config ~/.i3/config
 ln -s ~/dotfiles/configs/compton.conf ~/.config/compton.conf
-
+ln -s ~/dotfiles/scripts/get_ws.sh ~/.i3/get_ws.sh
+ln -s ~/dotfiles/scripts/rename_ws.sh ~/.i3/rename_ws.sh
 
 # this is pretty manual, could loop but idk this is easier
 
