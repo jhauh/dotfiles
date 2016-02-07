@@ -7,3 +7,4 @@ tmux
 chromium-browser
 ttf-font-awesome
 noto-fonts
+jshon
