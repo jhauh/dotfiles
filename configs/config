@@ -9,18 +9,32 @@
 
 set $mod Mod1
 
+# set color aliases for emerald
+set $bg-color            #2f343f
+set $inactive-bg-color   #4c5366
+set $text-color          #ffffff
+set $inactive-text-color #bfbfbf
+set $urgent-bg-color     #e53935
+set $highlight-color     #19b898
+
+
 # Start auto
-exec_always feh --bg-scale ~/background2.png
+exec_always --no-startup-id feh --bg-scale ~/background2.jpg
+exec --no-startup-id /home/.i3/configure_monitors.sh
+exec --no-startup-id nm-applet
 #exec python /home/james/reddit_wallpaper/reddit_wallpaper_getter.py --min-resolution 1920x1080
-exec_always compton -CGb --config /home/james/.config/compton.conf
+#exec_always compton -CGb --config /home/james/.config/compton.conf
 #exec_always compton --config ~/.compton.conf
 #enable_alpha_channel yes
 
 # Gaps Patch
-gaps inner 4
+gaps inner 0 
 gaps outer 0
 
 smart_borders on
+
+# new windows are created in tabs, not splits
+workspace_layout tabbed
 
 font pango: Noto Sans 12px, FontAwesome 12px
 
@@ -40,13 +54,13 @@ new_window pixel 2
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 
 # open file browser (thunar)
-bindsym $mod+b exec thunar
+bindsym $mod+b exec --no-startup-id dolphin
 
 # open chromium
-bindsym Mod4+w exec chromium-browser
+bindsym Mod4+w exec --no-startup-id chromium-browser
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -57,17 +71,20 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # rofi instead of dmenu
-bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "100" -bc "$highlight-color" -bg "$bg-color" -fg "$text-color" -hlfg "$highlight-color" -hlbg "$inactive-bg-color" -font "Noto Sans 12"
+bindsym $mod+d exec --no-startup-id rofi -show run -lines 5 -eh 2 -opacity "100" -bc "$highlight-color" -bg "$bg-color" -fg "$text-color" -hlfg "$highlight-color" -hlbg "$inactive-bg-color" -font "Noto Sans 12"
 
 bindsym $mod+Shift+s sticky toggle
 # put YouTube into fullscreen and execute this for media mode
-bindsym $mod+y fullscreen disable; floating enable; resize set 400 300 #; sticky enable; move window to position 1515 20
+bindsym $mod+y fullscreen disable; floating enable; resize set 400 300 
+#; sticky enable; move window to position 1515 20
 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
+
+bindsym $mod+a focus parent
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -139,6 +156,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym Mod4+Right workspace next
 bindsym Mod4+Left workspace prev
 bindsym Mod4+Up workspace back_and_forth
+
+# mark windows with names which can be focused on later
+bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
+bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
 # rename workspaces. This is my proudest thing
 bindsym $mod+n exec ~/.i3/rename_ws.sh 
@@ -217,11 +238,11 @@ mode "$mode_gaps_outer" {
 set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
 bindsym $mod+Delete mode "$mode_system"
 mode "$mode_system" {
-    bindsym l exec $psst /home/jhauh/.i3/i3exit.sh lock, mode "default"
-    bindsym o exec $psst /home/jhauh/.i3/i3exit.sh logout, mode "default"
-    bindsym s exec $psst /home/jhauh/.i3/i3exit.sh suspend, mode "default"
-    bindsym r exec $psst /home/jhauh/.i3/i3exit.sh reboot, mode "default"
-    bindsym p exec $psst /home/jhauh/.i3/i3exit.sh poweroff, mode "default"
+    bindsym l exec $psst /home/$USER/.i3/lock.sh # lock, mode "default"
+    bindsym o exec $psst /home/$USER/.i3/i3exit.sh logout, mode "default"
+    bindsym s exec $psst /home/$USER/.i3/i3exit.sh suspend, mode "default"
+    bindsym r exec $psst /home/$USER/.i3/i3exit.sh reboot, mode "default"
+    bindsym p exec $psst /home/$USER/.i3/i3exit.sh poweroff, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -237,14 +258,6 @@ mode "alt-free" {
 
 bindsym $mod+x mode "alt-free"
 
-
-# set color aliases for emerald
-set $bg-color            #2f343f
-set $inactive-bg-color   #4c5366
-set $text-color          #ffffff
-set $inactive-text-color #bfbfbf
-set $urgent-bg-color     #e53935
-set $highlight-color     #19b898
 
 # window colors
 #                       border              background         text                 indicator
@@ -275,4 +288,11 @@ bar {
 }
 
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
