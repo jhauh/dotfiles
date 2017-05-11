@@ -140,9 +140,9 @@ set expandtab
 set t_Co=256
 color brogrammer
 
+set clipboard=unnamed
 
-
-
+inoremap jk <Esc>
 
 
 
