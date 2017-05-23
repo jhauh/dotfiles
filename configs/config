@@ -161,6 +161,9 @@ bindsym Mod4+Up workspace back_and_forth
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
 bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
+# jump to urgent pane e.g. hangouts, telegram
+bindsym $mod+z [urgent=latest] focus
+
 # rename workspaces. This is my proudest thing
 bindsym $mod+n exec ~/.i3/rename_ws.sh 
 
