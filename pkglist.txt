@@ -6,3 +6,6 @@ tmux
 ttf-font-awesome
 noto-fonts
 jshon
+stow
+compton
+rofi
