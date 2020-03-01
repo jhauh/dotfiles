@@ -1,5 +1,8 @@
 dotfiles
 ========
+
+**Update: Moved to Gitlab**: https://gitlab.com/jhauh/dotfiles
+
 A collection of my excessively curated configuration files. Uses `GNU Stow <http://www.gnu.org/software/stow/>`_ to manage symlinks so you don't have to.
 
 Usage
